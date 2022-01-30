@@ -6,7 +6,7 @@ class Controller extends Perguntas {
 
   String perguntas() => lista.isNotEmpty
       ? posicaoPerguntasExiste()
-          ? "O que é ${lista[posicaoList]['pergunta']} ?"
+          ? lista[posicaoList]['pergunta'] as String
           : 'Parabens por responder todas as perguntas'
       : 'Nenhuma Pergunta';
 

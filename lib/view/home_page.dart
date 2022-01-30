@@ -20,10 +20,14 @@ class _HomePageState extends State<HomePage> {
         Container(
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 10),
-          margin: const EdgeInsets.only(top: 20),
+          margin: const EdgeInsets.only(top: 20, left: 15, right: 15),
           child: Text(
             _controller.perguntas(),
             textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Visibility(
@@ -60,7 +64,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 30),
             child: Column(
               children: [
-                Text("Sua nota é ${_controller.notaTotal}"),
+                Text("Você acertou ${_controller.notaTotal} questões"),
                 const SizedBox(
                   height: 20,
                 ),

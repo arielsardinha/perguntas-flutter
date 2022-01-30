@@ -25,9 +25,7 @@ class _MyAppState extends State<MyApp> {
           child: MenuPage(),
         ),
         appBar: AppBar(
-          title: const Center(
-            child: Text('Perguntas'),
-          ),
+          title: const Text('Perguntas'),
         ),
         body: const HomePage(),
       ),

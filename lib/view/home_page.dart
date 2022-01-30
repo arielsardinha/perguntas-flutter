@@ -33,20 +33,21 @@ class _HomePageState extends State<HomePage> {
             margin: const EdgeInsets.only(top: 20),
             child: ListView.builder(
               itemCount: _controller.posicaoPerguntasExiste()
-                  ? _controller
-                      .lista[_controller.posicaoList]['respostas'].length
+                  ? (_controller.lista[_controller.posicaoList]['respostas']
+                          as List)
+                      .length
                   : null,
               itemBuilder: (ctx, i) {
                 return CardComponent(
-                  _controller.lista[_controller.posicaoList]['respostas'][i]
-                      ['resposta'],
+                  (_controller.lista[_controller.posicaoList]['respostas']
+                      as List)[i]['resposta'],
                   color: (i / 2 == 0) ? Colors.grey[200] : Colors.grey[300],
                   onTap: () {
                     if (_controller.posicaoPerguntasExiste()) {
                       setState(() {
                         _controller.notaTotal +=
-                            _controller.lista[_controller.posicaoList]
-                                ['respostas'][i]['pontuacao'] as int;
+                            (_controller.lista[_controller.posicaoList]
+                                ['respostas'] as List)[i]['pontuacao'] as int;
                         _controller.posicaoList++;
                       });
                     }

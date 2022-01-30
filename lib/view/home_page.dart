@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                     });
                   },
                   child: const Text(
-                    'Voltar',
+                    'Reiniciar',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

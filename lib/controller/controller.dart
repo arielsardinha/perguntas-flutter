@@ -1,29 +1,8 @@
-class Controller {
+import 'package:projeto_perguntas/controller/list.dart';
+
+class Controller extends Perguntas {
   var posicaoList = 0;
   var notaTotal = 0;
-  final List<Map<String, dynamic>> lista = const [
-    {
-      'pergunta': 'Arroz',
-      'respostas': [
-        {'resposta': 'Teatro', 'pontuacao': 0},
-        {'resposta': 'Comida', 'pontuacao': 10},
-      ],
-    },
-    {
-      'pergunta': 'Arroz',
-      'respostas': [
-        {'resposta': 'Teatro', 'pontuacao': 0},
-        {'resposta': 'Comida', 'pontuacao': 10},
-      ],
-    },
-    {
-      'pergunta': 'Arroz',
-      'respostas': [
-        {'resposta': 'Teatro', 'pontuacao': 0},
-        {'resposta': 'Comida', 'pontuacao': 10},
-      ],
-    },
-  ];
 
   String perguntas() => lista.isNotEmpty
       ? posicaoPerguntasExiste()

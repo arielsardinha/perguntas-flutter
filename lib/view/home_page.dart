@@ -64,7 +64,8 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 30),
             child: Column(
               children: [
-                Text("Você acertou ${_controller.notaTotal} questões"),
+                Text(
+                    "Você acertou ${_controller.notaTotal} de ${_controller.lista.length} questões"),
                 const SizedBox(
                   height: 20,
                 ),

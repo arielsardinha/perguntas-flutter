@@ -33,31 +33,36 @@ class _HomePageState extends State<HomePage> {
         Visibility(
           visible: _controller.posicaoPerguntasExiste(),
           child: Container(
-            height: 300,
+            height: MediaQuery.of(context).size.height - 220,
             margin: const EdgeInsets.only(top: 20),
-            child: ListView.builder(
-              itemCount: _controller.posicaoPerguntasExiste()
-                  ? (_controller.lista[_controller.posicaoList]['respostas']
-                          as List)
-                      .length
-                  : null,
-              itemBuilder: (ctx, i) {
-                return CardComponent(
-                  (_controller.lista[_controller.posicaoList]['respostas']
-                      as List)[i]['resposta'],
-                  color: (i / 2 == 0) ? Colors.grey[200] : Colors.grey[300],
-                  onTap: () {
-                    if (_controller.posicaoPerguntasExiste()) {
-                      setState(() {
-                        _controller.notaTotal +=
-                            (_controller.lista[_controller.posicaoList]
-                                ['respostas'] as List)[i]['pontuacao'] as int;
-                        _controller.posicaoList++;
-                      });
-                    }
+            child: SingleChildScrollView(
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height - 220,
+                child: ListView.builder(
+                  itemCount: _controller.posicaoPerguntasExiste()
+                      ? (_controller.lista[_controller.posicaoList]['respostas']
+                              as List)
+                          .length
+                      : null,
+                  itemBuilder: (ctx, i) {
+                    return CardComponent(
+                      (_controller.lista[_controller.posicaoList]['respostas']
+                          as List)[i]['resposta'],
+                      color: (i % 2 == 0) ? Colors.grey[200] : Colors.grey[300],
+                      onTap: () {
+                        if (_controller.posicaoPerguntasExiste()) {
+                          setState(() {
+                            _controller.notaTotal += (_controller
+                                    .lista[_controller.posicaoList]['respostas']
+                                as List)[i]['pontuacao'] as int;
+                            _controller.posicaoList++;
+                          });
+                        }
+                      },
+                    );
                   },
-                );
-              },
+                ),
+              ),
             ),
           ),
           replacement: Padding(
